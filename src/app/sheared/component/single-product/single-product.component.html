@@ -1,0 +1,43 @@
+<!-- { -->
+<!-- "id": 1, -->
+<!-- "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", -->
+<!-- "price": 109.95, -->
+<!-- "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday", -->
+<!-- "category": "men's clothing", -->
+<!-- "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", -->
+<!-- "rating": { -->
+<!-- "rate": 3.9, -->
+<!-- "count": 120 -->
+<!-- } -->
+<!-- } -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" *ngIf="ProudctsObj">
+      <div class="card-header">
+        <h3>{{ ProudctsObj.title }}</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <p><strong>DESCRIPTION:</strong>{{ ProudctsObj.description }}</p>
+            <p><strong> CATEGORY:</strong>{{ ProudctsObj.category }}</p>
+            <p><strong>PRICE:</strong>{{ ProudctsObj.price }}</p>
+            <p><strong> RATE:</strong>{{ ProudctsObj.rating.rate }}</p>
+            <p><strong> COUNT:</strong>{{ ProudctsObj.rating.count }}</p>
+          </div>
+          <div class="col-sm-6">
+            <div class="images">
+              <img src="{{ ProudctsObj.image }}" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-primary" routerLink="edit">Edit</button>
+        <button class="btn btn-danger" (click)="Ondelete(ProudctsObj.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

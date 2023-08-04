@@ -1,0 +1,66 @@
+<p *ngIf="!ProductId">create works!</p>
+<p *ngIf="ProductId">Update works!</p>
+<!-- { -->
+<!-- "id": 1, -->
+<!-- "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", -->
+<!-- "price": 109.95, -->
+<!-- "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday", -->
+<!-- "category": "men's clothing", -->
+<!-- "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", -->
+<!-- "rating": { -->
+<!-- "rate": 3.9, -->
+<!-- "count": 120 -->
+<!-- } -->
+<!-- } -->
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <form [formGroup]="ProductsData" (ngSubmit)="OnSubmit()">
+      <!-- title -->
+      <div class="form-group mt-2">
+        <label for="title">Title</label>
+        <input type="text" formControlName="title" id="title" class="form-control" />
+      </div>
+      <!-- price -->
+      <div class="form-group my-2">
+        <label for="">Price</label>
+        <input type="number" id="" formControlName="price" class="form-control" />
+      </div>
+      <!-- description -->
+      <div class="form-group my-2">
+        <label for="">description</label>
+        <input type="text" formControlName="description" id="" class="form-control" />
+      </div>
+      <!-- category -->
+      <div class="form-group my-2">
+        <label for="">category</label>
+        <!-- <input type="text" formControlName="category" id="" class="form-control" /> -->
+        <select name="" formControlName="category" class="form-control" id="" >
+          <option [value]="item" *ngFor="let item of ProdCategoryArray">{{item}}</option>
+        </select>
+      </div>
+      <!-- image -->
+      <div class="form-group my-2">
+        <label for="">image</label>
+        <input type="text" formControlName="image" id="" class="form-control" />
+      </div>
+      <!-- rating -->
+      <div formGroupName="rating">
+        <!-- rating rate-->
+        <div class="form-group my-2">
+          <label for="">rate</label>
+          <input type="number" formControlName="rate" id="" class="form-control" />
+        </div>
+        <!-- rating count-->
+        <div class="form-group my-2">
+          <label for="">count</label>
+          <input type="number" formControlName="count" id="" class="form-control" />
+        </div>
+      </div>
+
+      <div class="text-right">
+        <button class="btn btn-primary" *ngIf="ProductId" type="button" (click)="OnUpdate()">update</button>
+        <button class="btn btn-primary" *ngIf="!ProductId">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
